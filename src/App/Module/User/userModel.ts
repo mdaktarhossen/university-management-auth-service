@@ -9,16 +9,16 @@ const userSchema = new Schema<Iuser>({
     required: true,
     unique: true
   },
-  password: {
-    type: String,
-    required: true,
-    unique: true
-  },
   roll: {
     type: String,
     required: true,
-    unique: true
+  },
+  password: {
+    type: String,
+    required: true,
+    select: 0
+
   },
 }, { timestamps: true });
 
-export const User = model<Iuser, userModel>("userModel", userSchema);
+export const User = model<Iuser, userModel>("user", userSchema);
