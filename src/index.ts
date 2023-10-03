@@ -1,6 +1,8 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import "dotenv/config"
+const PORT = process.env;
+console.log(PORT);
 // mongoose buildings functionality
 import mongoose from 'mongoose';
 const app: Application = express();
@@ -19,9 +21,6 @@ const DbConnect = async (): Promise<void> => {
     throw new Error("Cannot connect to Mongoose");
   }
   await mongoose.connect(URI);
-  app.listen(process.env.PORT, () => {
-    console.log(`server listening on port ${process.env.PORT`);
-  })
 };
 
 DbConnect();
